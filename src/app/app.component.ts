@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angularOreilly';
+  title = 'app comp';
+  loadedFeature:string='recipe';
+
+  onNavEventRecieved(feature:string){
+    this.loadedFeature = feature
+  }
 }

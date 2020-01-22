@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="col-md-12">
+        <img style="max-height: 200px;" [src]="recipe.imagePath" alt="" class="img-responsive">
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <h1>{{recipe.name}}</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="dropdown" appDropdown #directiveReference="appDropDown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Manage Recipes
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" [ngClass]="{'show': directiveReference.isOpen}">
+                <button class="dropdown-item" (click)="onAddToShopingList()">To shopping List</button>
+                <button class="dropdown-item" (click)="onAddToShopingList()">Edit Recipe</button>
+                <button class="dropdown-item" (click)="onAddToShopingList()">Delete Recipe</button>
+            </div>
+        </div>
+<!-- 
+        <button class="btn btn-success" type="submit" (click)="onAddToShopingList()">To shopping List</button>
+        <button class="btn btn-primary" type="submit">Edit Recipe</button>
+        <button class="btn btn-danger" type="submit">Delete Recipe</button> -->
+
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-md-12">
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let ingredient of recipe.ingredients">
+                {{ingredient.name}} - {{ingredient.amount}}
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        {{recipe.description}}
+    </div>
+</div>
+<div role="alert" aria-live="assertive" aria-atomic="true" class="toast" data-autohide="false">
+    <div class="toast-header">
+        <strong class="mr-auto">Update</strong>
+        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="toast-body">
+        Hello, world! This is a toast message.
+    </div>
+</div>
